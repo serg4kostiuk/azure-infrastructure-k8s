@@ -1,10 +1,3 @@
-provider "azurerm" {
-   subscription_id = "a14fb91a-5f46-4afc-879a-4918d7def1c5"
-   client_id       = "1cb0b69c-6087-49c0-8c5e-ddde2acfbc7a"
-   client_secret   = "e677bee9-fb46-499d-9ed6-a369f025bb3c"
-   tenant_id       = "22a6cb29-942b-44fc-abd1-03aa3af1c4f9"
-}
-
 resource "azurerm_resource_group" "kubernet" {
   name     = "kubernetes"
   location = "West Europe"

@@ -3,6 +3,7 @@
 /client_golang/*
 client_golang/*
 client_golang/
+provider.tf
 
 # .tfstate files
 *.tfstate
