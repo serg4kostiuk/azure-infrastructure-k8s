@@ -1,6 +1,8 @@
 #  Local .terraform directories
 **/.terraform/*
 /client_golang/*
+client_golang/*
+client_golang/
 
 # .tfstate files
 *.tfstate
