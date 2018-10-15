@@ -12,7 +12,7 @@ RUN cd /var/www/wordpress/ && sed -i "s|define('DB_NAME', 'database_name_here');
 RUN cd /var/www/wordpress/ &&  sed -i "s|define('DB_USER', 'username_here');|define('DB_USER', 'wordp');|g" /var/www/wordpress/wp-config-sample.php
 RUN cd /var/www/wordpress/ &&  sed -i "s|define('DB_PASSWORD', 'password_here');|define('DB_PASSWORD', 'pm112358gtxR');|g" /var/www/wordpress/wp-config-sample.php
 RUN mv /var/www/wordpress/ /var/www/html/
-#RUN mv /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
+RUN mv /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
 COPY permissions.sh /var/www/permissions.sh
 RUN cd /var/www/ && chmod +x permissions.sh && ./permissions.sh
 
