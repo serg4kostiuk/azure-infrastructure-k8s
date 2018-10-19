@@ -12,11 +12,11 @@ spec:
     spec:
       containers:
       - name: web2
-        image: pavlomysiuk/first
+        image: pavlomysiuk/webapp:v1
         ports:
         - containerPort: 80
         env:
-        - name: REDIS
+        - name: myenv
           value: "web2"
 ---
 apiVersion: v1
@@ -29,3 +29,17 @@ spec:
   - port: 80
   selector:
     app: web2
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: web2
+  namespace: default
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1beta1
+    kind: Deployment
+    name: web2
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 50
