@@ -8,16 +8,9 @@ global:
 alerting:
   alertmanagers:
   - static_configs:
-    - targets: ['168.62.38.131']
-      labels:
-        group: 'wordpress'
+    - targets:
+      - 168.62.38.131
       # - alertmanager:9093
-
-    - targets: ['40.121.68.90']
-      labels:
-        group: 'mysql'
-
-        
 
 # Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
 rule_files:

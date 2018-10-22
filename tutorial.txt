@@ -23,3 +23,32 @@ web2-8857c9f66-n9pfj   1/1     Running   0          3h47m
 14. Must work 
     
 
+
+1. az login
+2. terraform init 
+3. terraform plan 
+4. terraform apply -auto-approve
+az aks install-cli
+az aks get-credentials --resource-group myrg --name myk8s
+kubectl get nodes
+9. kubectl apply -f second.yml
+kubectl get service web2 --watch
+
+kubectl exec -it web2-8857c9f66-9pnt9 -- /bin/bash
+kubectl exec -it web-7b48ff7558-zpbg6 -- /bin/bash
+
+
+
+#https://linuxconfig.org/how-to-install-kubernetes-on-ubuntu-18-04-bionic-beaver-linux
+
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
+sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
+sudo apt install kubeadm 
+
+
+az login
+az account set --subscription "mySubscriptionID"
+az group create --name "testKubGroup" --location "westus"
+az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/97177a02-71fc-42bc-8a83-1a00bd462bf2/resourceGroups/testKubGroup"
+
+kubectl create -f mysql.yaml

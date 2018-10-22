@@ -4,9 +4,18 @@
 client_golang/*
 client_golang/
 
+#prometheus
+/prom/*
+prom/*
+!prom/prom.yml
+!prom/prometheus.yml
+
 # .tfstate files
 *.tfstate
 *.tfstate.*
 
 # .tfvars files
 *.tfvars
+
+# sensetive data
+providers.tf

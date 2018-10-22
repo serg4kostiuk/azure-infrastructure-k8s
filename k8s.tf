@@ -7,7 +7,16 @@ resource "azurerm_kubernetes_cluster" "myk8s" {
   name                = "myk8s"
   location            = "${azurerm_resource_group.myk8s.location}"
   resource_group_name = "${azurerm_resource_group.myk8s.name}"
+  kubernetes_version  = "1.9.11"
   dns_prefix          = "acctestagent1"
+
+  linux_profile {
+    admin_username = "serg"
+
+    ssh_key {
+      key_data = "${file("~/.ssh/id_rsa.pub")}"
+    }
+  }
 
   agent_pool_profile {
     name            = "default"
@@ -18,8 +27,8 @@ resource "azurerm_kubernetes_cluster" "myk8s" {
   }
 
   service_principal {
-    client_id     = "${var.app_id}"
-    client_secret = "${var.client_password}"
+    client_id     = "${var.client_id}"
+    client_secret = "${var.client_secret}"
   }
 
   tags {
