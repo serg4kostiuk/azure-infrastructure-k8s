@@ -8,19 +8,18 @@ global:
 alerting:
   alertmanagers:
   - static_configs:
-    - targets: ['168.62.38.131']
+    - targets: ['10.0.206.219']
       labels:
         group: 'wordpress'
       # - alertmanager:9093
 
-    - targets: ['40.121.68.90']
+    - targets: ['10.0.143.32']
       labels:
         group: 'mysql'
 
-        
-
 # Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
 rule_files:
+  - 'prometheus.rules.yml'
   # - "first_rules.yml"
   # - "second_rules.yml"
 
@@ -35,3 +34,5 @@ scrape_configs:
 
     static_configs:
     - targets: ['localhost:9090']
+
+    #some comment

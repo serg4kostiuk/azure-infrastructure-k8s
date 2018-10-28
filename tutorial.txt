@@ -18,6 +18,16 @@ web2   LoadBalancer   10.0.59.124   40.121.48.150   80:30722/TCP   3h44m
 NAME                   READY   STATUS    RESTARTS   AGE
 web2-8857c9f66-n9pfj   1/1     Running   0          3h47m
 
+
+
+
+
+
+
+
+
+
+
 12. kubectl exec -it web2-....... -- /bin/bash
 13.  vi /var/www/html/wp-config.php on pod change parameters for db connection (password host)
 14. Must work 
@@ -38,6 +48,12 @@ kubectl exec -it web2-8857c9f66-9pnt9 -- /bin/bash
 kubectl exec -it web-7b48ff7558-zpbg6 -- /bin/bash
 
 
+#ping remote port
+nc -vz 13.68.128.183 50000
+wget 13.68.128.183:50000
+telnet 13.68.128.183 50000
+nping -p 50000 13.68.128.183
+
 
 #https://linuxconfig.org/how-to-install-kubernetes-on-ubuntu-18-04-bionic-beaver-linux
 
@@ -52,3 +68,9 @@ az group create --name "testKubGroup" --location "westus"
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/97177a02-71fc-42bc-8a83-1a00bd462bf2/resourceGroups/testKubGroup"
 
 kubectl create -f mysql.yaml
+
+
+
+
+
+kubectl create configmap prometheus-cm --from-file=prometheus.yml -o yaml --dry-run | kubectl apply -f -
