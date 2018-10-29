@@ -15,7 +15,8 @@ spec:
     spec:
       containers:
       - name: web
-        image: pavlomysiuk/first
+        #image: pavlomysiuk/first
+        image: pavlomysiuk/first:v2
         #command: ["yum install -y"]
         #args: ["epel-release stress htop wget"]
         #image: skostiuk/apache-php
