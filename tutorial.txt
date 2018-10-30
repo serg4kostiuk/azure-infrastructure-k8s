@@ -1,0 +1,25 @@
+1. az login
+2. az group create --name myrg --location West Europe 
+ #you can change name of k8s in k8s.tf
+3. terraform init 
+4. terraform plan 
+5. terraform apply
+6. az aks install-cli
+7. az aks get-credentials --resource-group myrg --name myk8s
+8. kubectl get nodes
+9. kubectl apply -f second.yml
+10. kubectl get service web2 --watch
+
+NAME   TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)        AGE
+web2   LoadBalancer   10.0.59.124   40.121.48.150   80:30722/TCP   3h44m
+
+11. kubectl get pods --watch
+
+NAME                   READY   STATUS    RESTARTS   AGE
+web2-8857c9f66-n9pfj   1/1     Running   0          3h47m
+
+12. kubectl exec -it web2-....... -- /bin/bash
+13.  vi /var/www/html/wp-config.php on pod change parameters for db connection (password host)
+14. Must work 
+    
+

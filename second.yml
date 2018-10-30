@@ -1,0 +1,50 @@
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: web2
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: web2
+    spec:
+      containers:
+      - name: web2
+        image: pavlomysiuk/first:v2
+        resources:
+          requests:
+            cpu: 100m
+          limits:
+            cpu: 250m
+        ports:
+        - containerPort: 80
+        env:
+        - name: myenv
+          value: "web2"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web2
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: web2
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: web2
+  namespace: default
+spec:
+  scaleTargetRef:
+    apiVersion: extensions/v1beta1
+    kind: Deployment
+    name: web2
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 20
