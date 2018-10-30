@@ -13,6 +13,12 @@ helm repo add coreos https://s3-eu-west-1.amazonaws.com/coreos-charts/stable/
 helm install coreos/prometheus-operator --name prometheus-operator --namespace monitoring --set rbacEnable=false
 helm install coreos/kube-prometheus --name kube-prometheus --set global.rbacEnable=false --namespace monitoring
 kubectl get pods -n monitoring
+
+#Forward the Prometheus server to local machine
 kubectl port-forward -n monitoring prometheus-kube-prometheus-0 9090
+
+#To have a good-looking dashboard, use Grafana, it has a datasource ready to query on Prometheus.
 kubectl port-forward $(kubectl get  pods --selector=app=kube-prometheus-grafana -n  monitoring --output=jsonpath="{.items..metadata.name}") -n monitoring 3003
+
+#forward the port to your machine, and open the url http://localhost:9093 in your browser
 kubectl port-forward -n monitoring alertmanager-kube-prometheus-0 9093
