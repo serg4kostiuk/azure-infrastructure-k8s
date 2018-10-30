@@ -104,7 +104,7 @@ enabled = true
 name = Azure AD
 allow_sign_up = true
 client_id = https://casablancaukrainegmail.onmicrosoft.com/6bea3a89-cb6f-42ee-8dbd-4632b8810416
-client_secret = iJkxDgnLippXHVnkNy3AZhRAzSWFeu0v8obU6iDCoWA=
+client_secret = iJkxDgnLippXHVNy3AZhRAzSWFeu0v8obU6iDCoWA=
 scopes = openid email name
 auth_url = https://login.microsoftonline.com/e241b4a0-b3ae-4690-8721-5601a0c8314b/oauth2/authorize
 token_url = https://login.microsoftonline.com/e241b4a0-b3ae-4690-8721-5601a0c8314b/oauth2/token
@@ -113,9 +113,22 @@ token_url = https://login.microsoftonline.com/e241b4a0-b3ae-4690-8721-5601a0c831
 curl -X POST -H 'Content-type: applibhyqsddvggggggggggggggggggrbv kkcation/json' --data '{"text":"You, bastards!"}' https://hooks.slack.com/services/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ok% 
 
 
+echo "if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi" >> ~/.zshrc
+sudo iptables -P FORWARD ACCEPT            //sudo iptables -P FORWARD DROP
+
+#kube DNS
+https://github.com/kubernetes/kubeadm/issues/193#issuecomment-330060848
+sudo systemctl stop kubelet
+sudo systemctl stop docker
+sudo iptables --flush
+sudo iptables -tnat --flush
+sudo systemctl start kubelet
+sudo systemctl start docker
+
+
+
 
 https://itnext.io/kubernetes-monitoring-with-prometheus-in-15-minutes-8e54d1de2e13
-
 
 
 helm install coreos/prometheus-operator --name prometheus-operator --namespace monitoring --set rbacEnable=false
@@ -123,3 +136,6 @@ helm install coreos/prometheus-operator --name prometheus-operator --namespace m
 helm install coreos/kube-prometheus --name kube-prometheus --set global.rbacEnable=true --namespace monitoring --set rbacEnable=false
 
 kubectl get pods  -n monitoring --watch
+
+kubectl get namespace --all
+kubectl delete namespace --all

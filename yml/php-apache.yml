@@ -3,6 +3,7 @@ apiVersion: apps/v1beta1 # for versions before 1.9.0 use apps/v1beta2
 kind: Deployment
 metadata:
   name: web
+  namespace: production
 spec:
   replicas: 1
   template:
@@ -12,7 +13,6 @@ spec:
     spec:
       containers:
       - name: web
-        #image: pavlomysiuk/first
         image: pavlomysiuk/first:v2
         ports:
         - containerPort: 80
@@ -31,17 +31,17 @@ spec:
   selector:
     app: web
 ---
-#apiVersion: autoscaling/v1
-#kind: HorizontalPodAutoscaler
-#metadata:
-#  name: web
-#  namespace: default
-#spec:
-#  scaleTargetRef:
-#    apiVersion: apps/v1
-#    kind: Deployment
-#    name: web
-#  minReplicas: 1
-#  maxReplicas: 10
-#  targetCPUUtilizationPercentage: 50
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: web
+  namespace: default
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: web
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 50
 
