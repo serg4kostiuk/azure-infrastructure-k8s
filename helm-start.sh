@@ -7,8 +7,14 @@ helm init
 helm list
 #kubectl create serviceaccount tiller --namespace kube-system
 #kubectl apply -f helm-tiller-clusterrolebinding.yml
+#helm init --service-account tiller
+#helm init --service-account tiller --upgrade
+
+#workaround for Error: could not find tiller
 helm init --service-account tiller
-helm init --service-account tiller --upgrade
+kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
+helm init --service-account tiller
+
 helm repo add coreos https://s3-eu-west-1.amazonaws.com/coreos-charts/stable/
 helm install coreos/prometheus-operator --name prometheus-operator --namespace monitoring --set rbacEnable=false
 helm install coreos/kube-prometheus --name kube-prometheus --set global.rbacEnable=false --namespace monitoring
