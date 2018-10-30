@@ -31,3 +31,6 @@ kubectl port-forward -n monitoring alertmanager-kube-prometheus-0 9093
 
 #add ip for public usage
 kubectl edit svc -n monitoring kube-prometheus-grafana
+
+#show the ports in usage
+sudo netstat -plnt | grep ':9090'
