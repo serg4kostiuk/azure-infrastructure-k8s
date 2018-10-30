@@ -136,6 +136,11 @@ helm install coreos/prometheus-operator --name prometheus-operator --namespace m
 helm install coreos/kube-prometheus --name kube-prometheus --set global.rbacEnable=true --namespace monitoring --set rbacEnable=false
 
 kubectl get pods  -n monitoring --watch
+kubectl get deployment tiller-deploy -w
+
+kubectl -n kube-system create sa tiller
+kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
+helm init --service-account tiller
 
 kubectl get namespace --all
 kubectl delete namespace --all
