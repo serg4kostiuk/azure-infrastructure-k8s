@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: 2018-10-29T17:26:19Z
+  labels:
+    app: exporter-kube-state
+    chart: exporter-kube-state-0.2.6
+    component: kube-state
+    heritage: Tiller
+    release: kube-prometheus
+  name: kube-prometheus-exporter-kube-state
+  namespace: monitoring
+  resourceVersion: "4368"
+  selfLink: /api/v1/namespaces/monitoring/services/kube-prometheus-exporter-kube-state
+  uid: bfc28b7e-db9f-11e8-868c-b26230958cf1
+spec:
+  clusterIP: 10.0.139.157
+  ports:
+  - name: kube-state-metrics
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: kube-prometheus-exporter-kube-state
+    component: kube-state
+    release: kube-prometheus
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

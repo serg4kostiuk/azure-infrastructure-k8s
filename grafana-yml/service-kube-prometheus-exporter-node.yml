@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: 2018-10-29T17:26:19Z
+  labels:
+    app: exporter-node
+    chart: exporter-node-0.4.6
+    component: node-exporter
+    heritage: Tiller
+    release: kube-prometheus
+  name: kube-prometheus-exporter-node
+  namespace: monitoring
+  resourceVersion: "4371"
+  selfLink: /api/v1/namespaces/monitoring/services/kube-prometheus-exporter-node
+  uid: bfcd41a6-db9f-11e8-868c-b26230958cf1
+spec:
+  clusterIP: 10.0.31.88
+  ports:
+  - name: metrics
+    port: 9100
+    protocol: TCP
+    targetPort: metrics
+  selector:
+    app: kube-prometheus-exporter-node
+    component: node-exporter
+    release: kube-prometheus
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

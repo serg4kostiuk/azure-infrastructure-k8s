@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: 2018-10-29T17:26:20Z
+  labels:
+    app: prometheus
+    chart: prometheus-0.0.51
+    heritage: Tiller
+    prometheus: kube-prometheus
+    release: kube-prometheus
+  name: kube-prometheus
+  namespace: monitoring
+  resourceVersion: "4378"
+  selfLink: /api/v1/namespaces/monitoring/services/kube-prometheus
+  uid: bfe1fa8d-db9f-11e8-868c-b26230958cf1
+spec:
+  clusterIP: 10.0.87.219
+  ports:
+  - name: http
+    port: 9090
+    protocol: TCP
+    targetPort: 9090
+  selector:
+    app: prometheus
+    prometheus: kube-prometheus
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

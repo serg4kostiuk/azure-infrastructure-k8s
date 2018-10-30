@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  creationTimestamp: 2018-10-29T16:45:57Z
+  labels:
+    name: monitoring
+  name: monitoring
+  resourceVersion: "1188"
+  selfLink: /api/v1/namespaces/monitoring
+  uid: 1c00aec2-db9a-11e8-868c-b26230958cf1
+spec:
+  finalizers:
+  - kubernetes
+status:
+  phase: Active

@@ -4,9 +4,6 @@ kind: Deployment
 metadata:
   name: web
 spec:
-#  selector:
-#    matchLabels:
-#      name: testweb
   replicas: 1
   template:
     metadata:
@@ -17,9 +14,6 @@ spec:
       - name: web
         #image: pavlomysiuk/first
         image: pavlomysiuk/first:v2
-        #command: ["yum install -y"]
-        #args: ["epel-release stress htop wget"]
-        #image: skostiuk/apache-php
         ports:
         - containerPort: 80
         env:
@@ -36,7 +30,7 @@ spec:
   - port: 80
   selector:
     app: web
-#---
+---
 #apiVersion: autoscaling/v1
 #kind: HorizontalPodAutoscaler
 #metadata:

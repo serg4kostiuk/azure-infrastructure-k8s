@@ -110,4 +110,16 @@ auth_url = https://login.microsoftonline.com/e241b4a0-b3ae-4690-8721-5601a0c8314
 token_url = https://login.microsoftonline.com/e241b4a0-b3ae-4690-8721-5601a0c8314b/oauth2/token
 
 
-curl -X POST -H 'Content-type: application/json' --data '{"text":"You, bastards!"}' https://hooks.slack.com/services/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ok% 
+curl -X POST -H 'Content-type: applibhyqsddvggggggggggggggggggrbv kkcation/json' --data '{"text":"You, bastards!"}' https://hooks.slack.com/services/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ok% 
+
+
+
+https://itnext.io/kubernetes-monitoring-with-prometheus-in-15-minutes-8e54d1de2e13
+
+
+
+helm install coreos/prometheus-operator --name prometheus-operator --namespace monitoring --set rbacEnable=false
+
+helm install coreos/kube-prometheus --name kube-prometheus --set global.rbacEnable=true --namespace monitoring --set rbacEnable=false
+
+kubectl get pods  -n monitoring --watch
