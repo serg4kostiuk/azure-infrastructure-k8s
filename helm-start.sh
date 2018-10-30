@@ -28,3 +28,6 @@ kubectl port-forward $(kubectl get  pods --selector=app=kube-prometheus-grafana 
 
 #forward the port to your machine, and open the url http://localhost:9093 in your browser
 kubectl port-forward -n monitoring alertmanager-kube-prometheus-0 9093
+
+#add ip for public usage
+kubectl edit svc -n monitoring kube-prometheus-grafana
