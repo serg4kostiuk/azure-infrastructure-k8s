@@ -7,7 +7,7 @@ resource "azurerm_kubernetes_cluster" "myk8s" {
   name                = "myk8s"
   location            = "${azurerm_resource_group.myk8s.location}"
   resource_group_name = "${azurerm_resource_group.myk8s.name}"
-  kubernetes_version  = "1.9.11"
+  kubernetes_version  = "1.11.3"
   dns_prefix          = "acctestagent1"
 
   linux_profile {

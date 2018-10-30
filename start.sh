@@ -11,11 +11,8 @@ alias kget='kubectl get --all-namespaces'
 echo "Deploying namespace"
 kubectl apply -f yml/my-namespace.yml
 
-echo "Deploying galera cluster"
-kubectl apply -f yml/etcd-cluster.yml
-kubectl apply -f yml/mariadb-rs.yml
-kubectl apply -f yml/mariadb-pvc.yml
-kubectl apply -f yml/mariadb-ss.yml
+echo "Deploying mysql"
+kubectl apply -f yml/mysql.yml
 
 echo "Deploying PHP and Apache web server"
 kubectl apply -f yml/php-apache.yml

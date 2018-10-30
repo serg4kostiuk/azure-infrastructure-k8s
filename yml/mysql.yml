@@ -1,0 +1,70 @@
+---
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+ name: mysql
+ namespace: production
+spec:
+ selector:
+   matchLabels:
+     app: mysql
+ strategy:
+   type: Recreate
+ template:
+   metadata:
+     labels:
+       app: mysql
+   spec:
+     containers:
+     - image: mysql:5.6
+       name: mysql
+
+       env:
+       - name: MYSQL_USER
+         value: tester
+
+       - name: MYSQL_PASSWORD
+         value: qwerty
+
+       - name: MYSQL_DATABASE
+         value: Wordpress
+
+       - name: MYSQL_ROOT_PASSWORD
+         value: qwerty
+
+       ports:
+       - containerPort: 3306
+         name: mysql
+       volumeMounts:
+       - name: mysql-persistent-storage
+         mountPath: /var/lib/mysql
+     volumes:
+     - name: mysql-persistent-storage
+       persistentVolumeClaim:
+         claimName: pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+ name: mysql-deployment
+spec:
+ selector:
+   app: mysql
+ ports:
+   - protocol: TCP
+     port: 3306
+     targetPort: 3306
+     nodePort: 30001
+ type: LoadBalancer
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+ name: pvc
+spec:
+ accessModes:
+   - ReadWriteOnce
+ volumeMode: Block
+ resources:
+   requests:
+     storage: 5Gi
