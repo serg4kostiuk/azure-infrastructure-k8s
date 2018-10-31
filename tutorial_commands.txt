@@ -1,0 +1,139 @@
+#LAST NNNN COMMANDS
+
+ 3489  git checkout -b devHelm
+ 3490  helm repo add coreos https://s3-eu-west-1.amazonaws.com/coreos-charts/stable/\n
+ 3491  helm install coreos/prometheus-operator --name prometheus-operator --namespace monitoring
+ 3492  terraform destroy -auto-approve
+ 3493  az login
+ 3494  terraform destroy -auto-approve
+ 3495  helm repo add coreos https://s3-eu-west-1.amazonaws.com/coreos-charts/stable/
+ 3496  helm install coreos/prometheus-operator --name prometheus-operator --namespace monitoring
+ 3497  ./start.sh
+ 3498  kubectl get svc,rc,pods -o wide \n
+ 3499  helm repo add coreos https://s3-eu-west-1.amazonaws.com/coreos-charts/stable/
+ 3500  helm install coreos/prometheus-operator --name prometheus-operator --namespace monitoring
+ 3501  helm
+ 3502  helm init
+ 3503  helm install coreos/prometheus-operator --name prometheus-operator --namespace monitoring
+ 3504  helm init --upgrade --service-account tiller\n
+ 3505  helm install coreos/prometheus-operator --name prometheus-operator --namespace monitoring
+ 3506  kubectl get svc,rc,pods -o wide \n
+ 3507  cd scripts
+ 3508  ./delete-prometheus.sh
+ 3509  cd ..
+ 3510  kubectl get pods -n kube-system
+ 3511  helm init
+ 3512  helm install coreos/prometheus-operator --name prometheus-operator --namespace monitoring
+ 3513  helm init --upgrade --service-account tiller\n
+ 3514  helm install coreos/prometheus-operator --name prometheus-operator --namespace monitoring
+ 3515  kubectl -n kube-system get po
+ 3516  kubectl logs kube-system
+ 3517  kubectl logs --namespace kube-system
+ 3518  kubectl get deployment -n kube-system
+ 3519  kubectl logs tiller-deploy
+ 3520  kubectl logs -n kube-system tiller-deploy
+ 3521  kubectl logs -n kube-system
+ 3522  kubectl logs deployment -n kube-system tiller-deploy
+ 3523  kubectl describe deployment
+ 3524  kubectl describe deployment -n kube-system tiller-deploy
+ 3525  kubectl -n kube-system delete deployment tiller-deploy
+ 3526  kubectl describe deployment -n kube-system tiller-deploy
+ 3527  kubectl logs -n kube-system
+ 3528  kubectl logs tiller-deploy
+ 3529  kubectl get deployment -n kube-system
+ 3530  helm init
+ 3531  kubectl get deployment -n kube-system
+ 3532  kubectl get pods -n kube-system \n
+ 3533  helm install coreos/prometheus-operator --name prometheus-operator --namespace monitoring
+ 3534  kubectl create -f rbac-config.yml
+ 3535  helm install coreos/prometheus-operator --name prometheus-operator --namespace monitoring
+ 3536  helm del --purge prometheus-operator
+ 3537  helm install coreos/prometheus-operator --name prometheus-operator --namespace monitoring
+ 3538  kubectl -n kube-system create sa tiller
+ 3539  kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller\n
+ 3540  helm init --service-account tiller\n
+ 3541  helm install coreos/prometheus-operator --name prometheus-operator --namespace monitoring
+ 3542  helm del --purge prometheus-operator
+ 3543  helm install coreos/prometheus-operator --name prometheus-operator --namespace monitoring
+ 3544  kubectl destroy -f rbac-config.yml
+ 3545  kubectl dlt -f rbac-config.yml
+ 3546  kubectl delete -f rbac-config.yml
+ 3547  kubectl create -f rbac-config2.yml
+ 3548  kubectl create -f rbac-config.yml
+ 3549  kubectl create -f rbac-config2.yml
+ 3550  helm install coreos/prometheus-operator --name prometheus-operator --namespace monitoring
+ 3551  helm del --purge prometheus-operator
+ 3552  helm install coreos/prometheus-operator --name prometheus-operator --namespace monitoring
+ 3553  helm del --purge prometheus-operator
+ 3554  sudo helm install coreos/prometheus-operator --name prometheus-operator --namespace monitoring
+ 3555  kubectl create -f bundle.yml
+ 3556  kubectl version
+ 3557  kubectl create -f rbac-config2.yml
+ 3558  kubectl apply -f rbac-config2.yml
+ 3559  kubectl create -f rbac-config3.yml
+ 3560  helm del --purge prometheus-operator
+ 3561  sudo helm install coreos/prometheus-operator --name prometheus-operator --namespace monitoring
+ 3562  helm install coreos/prometheus-operator --name prometheus-operator --namespace monitoring
+ 3563  helm del --purge prometheus-operator
+ 3564  helm install coreos/prometheus-operator --name prometheus-operator --namespace monitoring
+ 3565  kubectl set subject clusterrolebinding system:node --group=system:nodes
+ 3566  helm del --purge prometheus-operator
+ 3567  helm install coreos/prometheus-operator --name prometheus-operator --namespace monitoring
+ 3568  kubectl create -f rbac-config4.yml
+ 3569  helm del --purge prometheus-operator
+ 3570  helm install coreos/prometheus-operator --name prometheus-operator --namespace monitoring
+ 3571  kubectl reset
+ 3572  systemctl stop kubelet
+ 3573  systemctl stop docker
+ 3574  rm -rf /var/lib/cni/
+ 3575  rm -rf /var/lib/kubelet/*
+ 3576  sudo rm -rf /var/lib/kubelet/*
+ 3577  rm -rf /etc/cni/
+ 3578  ifconfig cni0 down
+ 3579  ifconfig flannel.1 down
+ 3580  ifconfig docker0 down
+ 3581  sudo ifconfig docker0 down
+ 3582  systemctl start docker
+ 3583  systemctl start kubelet
+ 3584  kubectl create -f rbac-config4.yml
+ 3585  helm del --purge prometheus-operator
+ 3586  helm install coreos/prometheus-operator --name prometheus-operator --namespace monitoring
+ 3587  kubectl create clusterrolebinding permissive-binding \\n  --clusterrole=cluster-admin \\n  --user=admin \\n  --user=kubelet \\n  --group=system:serviceaccounts
+ 3588  helm install coreos/prometheus-operator --name prometheus-operator --namespace monitoring
+ 3589  helm del --purge prometheus-operator
+ 3590  helm install coreos/prometheus-operator --name prometheus-operator --namespace monitoring
+ 3591  helm --setrbacEnable=false
+ 3592  helm del --purge prometheus-operator
+ 3593  helm install coreos/prometheus-operator --name prometheus-operator --namespace monitoring --set rbac.create=false
+ 3594  helm install coreos/prometheus-operator --name prometheus-operator --namespace monitoring --set rbacEnable=false
+ 3595  helm del --purge prometheus-operator
+ 3596  helm install coreos/prometheus-operator --name prometheus-operator --namespace monitoring --set rbacEnable=false
+ 3597  helm install coreos/kube-prometheus --name kube-prometheus --set global.rbacEnable=true --namespace monitoring
+ 3598  helm install coreos/kube-prometheus --name kube-prometheus --set global.rbacEnable=true --namespace monitoring --set rbacEnable=false\n
+ 3599  helm del --purge prometheus-operator
+ 3600  helm install coreos/prometheus-operator --name prometheus-operator --namespace monitoring --set rbacEnable=false
+ 3601  helm del --purge kube-prometheus
+ 3602  helm install coreos/kube-prometheus --name kube-prometheus --set global.rbacEnable=true --namespace monitoring --set rbacEnable=false
+ 3603  helm del --purge kube-prometheus
+ 3604  helm install coreos/kube-prometheus --name kube-prometheus --set global.rbacEnable=false --namespace monitoring
+ 3605  kubectl.exe get pods  -n monitoring
+ 3606  kubectl get pods  -n monitoring
+ 3607  kubectl get pods  -n monitoring -watch
+ 3608  kubectl get pods  -n monitoring --watch
+ 3609  kubectl get pods  -n monitoring
+ 3610  kubectl port-forward -n monitoring prometheus-kube-prometheus-0 9090
+ 3611  kubectl port-forward $(kubectl get  pods --selector=app=kube-prometheus-grafana -n  monitoring --output=jsonpath="{.items..metadata.name}") -n monitoring  3000
+ 3612  kubectl get svc,rc,pods -o wide 
+ 3613  kubectl get svc,rc,nodes,pods -o wide 
+ 3614  kubectl get pods -n kube-system 
+ 3615  kubectl get svc,rc,nodes,pods -o wide 
+ 3616  kubectl get svc -n monitoring
+ 3617  kubectl edit svc -n monitoring kube-prometheus-grafana
+ 3618* kubectl get svc,rc,nodes,pods -o wide 
+ 3619  kubectl edit svc -n monitoring kube-prometheus-grafana
+ 3620  sudo apt install vim
+ 3621  kubectl edit svc -n monitoring kube-prometheus-grafana
+ 3622  kubectl get svc -n monitoring 
+ 3623* kubectl exec -it web-7dfd6bf848-gkwxf -- /bin/bash
+
+
